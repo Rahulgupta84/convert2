@@ -10,13 +10,13 @@ test.describe('API Documentation Page', () => {
   });
 
   test('should show REST API section', async ({ page }) => {
-    await expect(page.getByText(/REST API/i)).toBeVisible();
-    await expect(page.getByText(/\/api\/convert/i)).toBeVisible();
+    await expect(page.getByText('REST API').first()).toBeVisible();
+    await expect(page.getByText('/api/convert').first()).toBeVisible();
   });
 
   test('should show MCP Server section', async ({ page }) => {
-    await expect(page.getByText(/MCP Server/i)).toBeVisible();
-    await expect(page.getByText(/convert_units/i)).toBeVisible();
+    await expect(page.getByText('MCP Server').first()).toBeVisible();
+    await expect(page.getByText('convert_units').first()).toBeVisible();
   });
 
   test('should display available categories', async ({ page }) => {

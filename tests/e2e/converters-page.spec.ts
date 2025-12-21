@@ -10,9 +10,9 @@ test.describe('Converters List Page', () => {
   });
 
   test('should display all category groups', async ({ page }) => {
-    await expect(page.getByText(/Common Converters/i)).toBeVisible();
-    await expect(page.getByText(/Engineering Converters/i)).toBeVisible();
-    await expect(page.getByText(/Electricity Converters/i)).toBeVisible();
+    await expect(page.getByRole('main').getByRole('heading', { name: /Common Converters/i })).toBeVisible();
+    await expect(page.getByRole('main').getByRole('heading', { name: /Engineering Converters/i })).toBeVisible();
+    await expect(page.getByRole('main').getByRole('heading', { name: /Electricity Converters/i })).toBeVisible();
   });
 
   test('should have links to individual converters', async ({ page }) => {

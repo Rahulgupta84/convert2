@@ -10,8 +10,8 @@ test.describe('Home Page', () => {
   });
 
   test('should have navigation links', async ({ page }) => {
-    await expect(page.getByRole('link', { name: /All Converters/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /API/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'All Converters', exact: true })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'API', exact: true })).toBeVisible();
   });
 
   test('should display popular converters section', async ({ page }) => {
