@@ -1,0 +1,30 @@
+import { UnitCategory } from '../types';
+
+export const weightCategory: UnitCategory = {
+  id: 'weight',
+  name: 'Weight and Mass',
+  description: 'Convert between different units of weight and mass',
+  icon: 'Scale',
+  baseUnit: 'kilogram',
+  units: [
+    { id: 'kilogram', name: 'Kilogram', symbol: 'kg', toBase: 1, fromBase: 1 },
+    { id: 'gram', name: 'Gram', symbol: 'g', toBase: 0.001, fromBase: 1000 },
+    { id: 'milligram', name: 'Milligram', symbol: 'mg', toBase: 0.000001, fromBase: 1000000 },
+    { id: 'microgram', name: 'Microgram', symbol: 'μg', toBase: 1e-9, fromBase: 1e9 },
+    { id: 'metric-ton', name: 'Metric Ton', symbol: 't', toBase: 1000, fromBase: 0.001 },
+    { id: 'pound', name: 'Pound', symbol: 'lb', toBase: 0.45359237, fromBase: 1 / 0.45359237 },
+    { id: 'ounce', name: 'Ounce', symbol: 'oz', toBase: 0.028349523125, fromBase: 1 / 0.028349523125 },
+    { id: 'stone', name: 'Stone', symbol: 'st', toBase: 6.35029318, fromBase: 1 / 6.35029318 },
+    { id: 'short-ton', name: 'Short Ton (US)', symbol: 'ton', toBase: 907.18474, fromBase: 1 / 907.18474 },
+    { id: 'long-ton', name: 'Long Ton (UK)', symbol: 'long tn', toBase: 1016.0469088, fromBase: 1 / 1016.0469088 },
+    { id: 'carat', name: 'Carat', symbol: 'ct', toBase: 0.0002, fromBase: 5000 },
+    { id: 'grain', name: 'Grain', symbol: 'gr', toBase: 0.00006479891, fromBase: 1 / 0.00006479891 },
+    { id: 'troy-ounce', name: 'Troy Ounce', symbol: 'oz t', toBase: 0.0311034768, fromBase: 1 / 0.0311034768 },
+    { id: 'troy-pound', name: 'Troy Pound', symbol: 'lb t', toBase: 0.3732417216, fromBase: 1 / 0.3732417216 },
+    { id: 'pennyweight', name: 'Pennyweight', symbol: 'dwt', toBase: 0.00155517384, fromBase: 1 / 0.00155517384 },
+    { id: 'dram', name: 'Dram', symbol: 'dr', toBase: 0.0017718451953125, fromBase: 1 / 0.0017718451953125 },
+    { id: 'quintal', name: 'Quintal', symbol: 'q', toBase: 100, fromBase: 0.01 },
+    { id: 'atomic-mass-unit', name: 'Atomic Mass Unit', symbol: 'u', toBase: 1.66053906660e-27, fromBase: 1 / 1.66053906660e-27 },
+    { id: 'slug', name: 'Slug', symbol: 'slug', toBase: 14.593903, fromBase: 1 / 14.593903 },
+  ],
+};

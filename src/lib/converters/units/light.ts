@@ -1,0 +1,112 @@
+import { UnitCategory } from '../types';
+
+export const luminanceCategory: UnitCategory = {
+  id: 'luminance',
+  name: 'Luminance',
+  description: 'Convert between different units of luminance',
+  icon: 'Sun',
+  baseUnit: 'candela-per-square-meter',
+  units: [
+    { id: 'candela-per-square-meter', name: 'Candela per Square Meter', symbol: 'cd/m²', toBase: 1, fromBase: 1 },
+    { id: 'candela-per-square-centimeter', name: 'Candela per Square Centimeter', symbol: 'cd/cm²', toBase: 10000, fromBase: 0.0001 },
+    { id: 'candela-per-square-foot', name: 'Candela per Square Foot', symbol: 'cd/ft²', toBase: 10.7639104, fromBase: 1 / 10.7639104 },
+    { id: 'candela-per-square-inch', name: 'Candela per Square Inch', symbol: 'cd/in²', toBase: 1550.0031, fromBase: 1 / 1550.0031 },
+    { id: 'kilocandela-per-square-meter', name: 'Kilocandela per Square Meter', symbol: 'kcd/m²', toBase: 1000, fromBase: 0.001 },
+    { id: 'stilb', name: 'Stilb', symbol: 'sb', toBase: 10000, fromBase: 0.0001 },
+    { id: 'lumen-per-square-meter-per-steradian', name: 'Lumen per Square Meter per Steradian', symbol: 'lm/(m²·sr)', toBase: 1, fromBase: 1 },
+    { id: 'nit', name: 'Nit', symbol: 'nt', toBase: 1, fromBase: 1 },
+    { id: 'millinit', name: 'Millinit', symbol: 'mnt', toBase: 0.001, fromBase: 1000 },
+    { id: 'lambert', name: 'Lambert', symbol: 'L', toBase: 3183.0989, fromBase: 1 / 3183.0989 },
+    { id: 'millilambert', name: 'Millilambert', symbol: 'mL', toBase: 3.1830989, fromBase: 1 / 3.1830989 },
+    { id: 'foot-lambert', name: 'Foot-lambert', symbol: 'fL', toBase: 3.4262591, fromBase: 1 / 3.4262591 },
+    { id: 'apostilb', name: 'Apostilb', symbol: 'asb', toBase: 0.3183099, fromBase: 1 / 0.3183099 },
+    { id: 'blondel', name: 'Blondel', symbol: 'blondel', toBase: 0.3183099, fromBase: 1 / 0.3183099 },
+    { id: 'bril', name: 'Bril', symbol: 'bril', toBase: 3.1831e-8, fromBase: 1 / 3.1831e-8 },
+    { id: 'skot', name: 'Skot', symbol: 'sk', toBase: 0.0003183099, fromBase: 1 / 0.0003183099 },
+  ],
+};
+
+export const luminousIntensityCategory: UnitCategory = {
+  id: 'luminous-intensity',
+  name: 'Luminous Intensity',
+  description: 'Convert between different units of luminous intensity',
+  icon: 'Lightbulb',
+  baseUnit: 'candela',
+  units: [
+    { id: 'candela', name: 'Candela', symbol: 'cd', toBase: 1, fromBase: 1 },
+    { id: 'kilocandela', name: 'Kilocandela', symbol: 'kcd', toBase: 1000, fromBase: 0.001 },
+    { id: 'millicandela', name: 'Millicandela', symbol: 'mcd', toBase: 0.001, fromBase: 1000 },
+    { id: 'microcandela', name: 'Microcandela', symbol: 'μcd', toBase: 0.000001, fromBase: 1000000 },
+    { id: 'candlepower', name: 'Candlepower', symbol: 'cp', toBase: 0.981, fromBase: 1 / 0.981 },
+    { id: 'hefner-unit', name: 'Hefner Unit', symbol: 'HK', toBase: 0.903, fromBase: 1 / 0.903 },
+    { id: 'carcel', name: 'Carcel', symbol: 'carcel', toBase: 9.74, fromBase: 1 / 9.74 },
+    { id: 'bougie-decimale', name: 'Bougie Décimale', symbol: 'bd', toBase: 1, fromBase: 1 },
+    { id: 'lumen-per-steradian', name: 'Lumen per Steradian', symbol: 'lm/sr', toBase: 1, fromBase: 1 },
+  ],
+};
+
+export const illuminationCategory: UnitCategory = {
+  id: 'illumination',
+  name: 'Illumination (Illuminance)',
+  description: 'Convert between different units of illuminance',
+  icon: 'Lamp',
+  baseUnit: 'lux',
+  units: [
+    { id: 'lux', name: 'Lux', symbol: 'lx', toBase: 1, fromBase: 1 },
+    { id: 'kilolux', name: 'Kilolux', symbol: 'klx', toBase: 1000, fromBase: 0.001 },
+    { id: 'millilux', name: 'Millilux', symbol: 'mlx', toBase: 0.001, fromBase: 1000 },
+    { id: 'microlux', name: 'Microlux', symbol: 'μlx', toBase: 0.000001, fromBase: 1000000 },
+    { id: 'lumen-per-square-meter', name: 'Lumen per Square Meter', symbol: 'lm/m²', toBase: 1, fromBase: 1 },
+    { id: 'lumen-per-square-centimeter', name: 'Lumen per Square Centimeter', symbol: 'lm/cm²', toBase: 10000, fromBase: 0.0001 },
+    { id: 'foot-candle', name: 'Foot-candle', symbol: 'fc', toBase: 10.7639104, fromBase: 1 / 10.7639104 },
+    { id: 'phot', name: 'Phot', symbol: 'ph', toBase: 10000, fromBase: 0.0001 },
+    { id: 'nox', name: 'Nox', symbol: 'nx', toBase: 0.001, fromBase: 1000 },
+    { id: 'candela-steradian-per-square-meter', name: 'Candela Steradian per Square Meter', symbol: 'cd·sr/m²', toBase: 1, fromBase: 1 },
+    { id: 'lumen-per-square-foot', name: 'Lumen per Square Foot', symbol: 'lm/ft²', toBase: 10.7639104, fromBase: 1 / 10.7639104 },
+    { id: 'watt-per-square-centimeter', name: 'Watt per Square Centimeter (at 555nm)', symbol: 'W/cm²', toBase: 6830000, fromBase: 1 / 6830000 },
+  ],
+};
+
+export const digitalImageResolutionCategory: UnitCategory = {
+  id: 'digital-image-resolution',
+  name: 'Digital Image Resolution',
+  description: 'Convert between different units of image resolution',
+  icon: 'Image',
+  baseUnit: 'dot-per-meter',
+  units: [
+    { id: 'dot-per-meter', name: 'Dot per Meter', symbol: 'dpm', toBase: 1, fromBase: 1 },
+    { id: 'dot-per-millimeter', name: 'Dot per Millimeter', symbol: 'dpmm', toBase: 1000, fromBase: 0.001 },
+    { id: 'dot-per-inch', name: 'Dot per Inch', symbol: 'dpi', toBase: 39.3700787, fromBase: 1 / 39.3700787 },
+    { id: 'pixel-per-inch', name: 'Pixel per Inch', symbol: 'ppi', toBase: 39.3700787, fromBase: 1 / 39.3700787 },
+    { id: 'pixel-per-centimeter', name: 'Pixel per Centimeter', symbol: 'ppcm', toBase: 100, fromBase: 0.01 },
+    { id: 'dot-per-centimeter', name: 'Dot per Centimeter', symbol: 'dpcm', toBase: 100, fromBase: 0.01 },
+  ],
+};
+
+export const frequencyWavelengthCategory: UnitCategory = {
+  id: 'frequency-wavelength',
+  name: 'Wavelength',
+  description: 'Convert between different units of wavelength',
+  icon: 'Radio',
+  baseUnit: 'meter',
+  units: [
+    { id: 'meter', name: 'Meter', symbol: 'm', toBase: 1, fromBase: 1 },
+    { id: 'exameter', name: 'Exameter', symbol: 'Em', toBase: 1e18, fromBase: 1e-18 },
+    { id: 'petameter', name: 'Petameter', symbol: 'Pm', toBase: 1e15, fromBase: 1e-15 },
+    { id: 'terameter', name: 'Terameter', symbol: 'Tm', toBase: 1e12, fromBase: 1e-12 },
+    { id: 'gigameter', name: 'Gigameter', symbol: 'Gm', toBase: 1e9, fromBase: 1e-9 },
+    { id: 'megameter', name: 'Megameter', symbol: 'Mm', toBase: 1e6, fromBase: 1e-6 },
+    { id: 'kilometer', name: 'Kilometer', symbol: 'km', toBase: 1000, fromBase: 0.001 },
+    { id: 'hectometer', name: 'Hectometer', symbol: 'hm', toBase: 100, fromBase: 0.01 },
+    { id: 'dekameter', name: 'Dekameter', symbol: 'dam', toBase: 10, fromBase: 0.1 },
+    { id: 'decimeter', name: 'Decimeter', symbol: 'dm', toBase: 0.1, fromBase: 10 },
+    { id: 'centimeter', name: 'Centimeter', symbol: 'cm', toBase: 0.01, fromBase: 100 },
+    { id: 'millimeter', name: 'Millimeter', symbol: 'mm', toBase: 0.001, fromBase: 1000 },
+    { id: 'micrometer', name: 'Micrometer', symbol: 'μm', toBase: 1e-6, fromBase: 1e6 },
+    { id: 'nanometer', name: 'Nanometer', symbol: 'nm', toBase: 1e-9, fromBase: 1e9 },
+    { id: 'picometer', name: 'Picometer', symbol: 'pm', toBase: 1e-12, fromBase: 1e12 },
+    { id: 'femtometer', name: 'Femtometer', symbol: 'fm', toBase: 1e-15, fromBase: 1e15 },
+    { id: 'attometer', name: 'Attometer', symbol: 'am', toBase: 1e-18, fromBase: 1e18 },
+    { id: 'angstrom', name: 'Angstrom', symbol: 'Å', toBase: 1e-10, fromBase: 1e10 },
+  ],
+};

@@ -1,0 +1,30 @@
+import { UnitCategory } from '../types';
+
+export const timeCategory: UnitCategory = {
+  id: 'time',
+  name: 'Time',
+  description: 'Convert between different units of time',
+  icon: 'Clock',
+  baseUnit: 'second',
+  units: [
+    { id: 'second', name: 'Second', symbol: 's', toBase: 1, fromBase: 1 },
+    { id: 'millisecond', name: 'Millisecond', symbol: 'ms', toBase: 0.001, fromBase: 1000 },
+    { id: 'microsecond', name: 'Microsecond', symbol: 'μs', toBase: 0.000001, fromBase: 1000000 },
+    { id: 'nanosecond', name: 'Nanosecond', symbol: 'ns', toBase: 1e-9, fromBase: 1e9 },
+    { id: 'picosecond', name: 'Picosecond', symbol: 'ps', toBase: 1e-12, fromBase: 1e12 },
+    { id: 'minute', name: 'Minute', symbol: 'min', toBase: 60, fromBase: 1 / 60 },
+    { id: 'hour', name: 'Hour', symbol: 'h', toBase: 3600, fromBase: 1 / 3600 },
+    { id: 'day', name: 'Day', symbol: 'd', toBase: 86400, fromBase: 1 / 86400 },
+    { id: 'week', name: 'Week', symbol: 'wk', toBase: 604800, fromBase: 1 / 604800 },
+    { id: 'month', name: 'Month (30 days)', symbol: 'mo', toBase: 2592000, fromBase: 1 / 2592000 },
+    { id: 'year', name: 'Year (365 days)', symbol: 'yr', toBase: 31536000, fromBase: 1 / 31536000 },
+    { id: 'year-leap', name: 'Year (366 days)', symbol: 'yr (leap)', toBase: 31622400, fromBase: 1 / 31622400 },
+    { id: 'decade', name: 'Decade', symbol: 'decade', toBase: 315360000, fromBase: 1 / 315360000 },
+    { id: 'century', name: 'Century', symbol: 'century', toBase: 3153600000, fromBase: 1 / 3153600000 },
+    { id: 'millennium', name: 'Millennium', symbol: 'millennium', toBase: 31536000000, fromBase: 1 / 31536000000 },
+    { id: 'fortnight', name: 'Fortnight', symbol: 'fn', toBase: 1209600, fromBase: 1 / 1209600 },
+    { id: 'shake', name: 'Shake', symbol: 'shake', toBase: 1e-8, fromBase: 1e8 },
+    { id: 'svedberg', name: 'Svedberg', symbol: 'S', toBase: 1e-13, fromBase: 1e13 },
+    { id: 'planck-time', name: 'Planck Time', symbol: 'tP', toBase: 5.39e-44, fromBase: 1 / 5.39e-44 },
+  ],
+};

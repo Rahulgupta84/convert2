@@ -1,0 +1,30 @@
+import { UnitCategory } from '../types';
+
+export const pressureCategory: UnitCategory = {
+  id: 'pressure',
+  name: 'Pressure',
+  description: 'Convert between different units of pressure',
+  icon: 'Gauge',
+  baseUnit: 'pascal',
+  units: [
+    { id: 'pascal', name: 'Pascal', symbol: 'Pa', toBase: 1, fromBase: 1 },
+    { id: 'kilopascal', name: 'Kilopascal', symbol: 'kPa', toBase: 1000, fromBase: 0.001 },
+    { id: 'megapascal', name: 'Megapascal', symbol: 'MPa', toBase: 1000000, fromBase: 0.000001 },
+    { id: 'gigapascal', name: 'Gigapascal', symbol: 'GPa', toBase: 1e9, fromBase: 1e-9 },
+    { id: 'bar', name: 'Bar', symbol: 'bar', toBase: 100000, fromBase: 0.00001 },
+    { id: 'millibar', name: 'Millibar', symbol: 'mbar', toBase: 100, fromBase: 0.01 },
+    { id: 'atmosphere', name: 'Atmosphere', symbol: 'atm', toBase: 101325, fromBase: 1 / 101325 },
+    { id: 'torr', name: 'Torr', symbol: 'Torr', toBase: 133.322368421, fromBase: 1 / 133.322368421 },
+    { id: 'mmhg', name: 'Millimeter of Mercury', symbol: 'mmHg', toBase: 133.322387415, fromBase: 1 / 133.322387415 },
+    { id: 'inhg', name: 'Inch of Mercury', symbol: 'inHg', toBase: 3386.389, fromBase: 1 / 3386.389 },
+    { id: 'psi', name: 'Pound per Square Inch', symbol: 'psi', toBase: 6894.757293168, fromBase: 1 / 6894.757293168 },
+    { id: 'ksi', name: 'Kilopound per Square Inch', symbol: 'ksi', toBase: 6894757.293168, fromBase: 1 / 6894757.293168 },
+    { id: 'psf', name: 'Pound per Square Foot', symbol: 'psf', toBase: 47.88025898, fromBase: 1 / 47.88025898 },
+    { id: 'kgf-cm2', name: 'Kilogram-force per cm²', symbol: 'kgf/cm²', toBase: 98066.5, fromBase: 1 / 98066.5 },
+    { id: 'kgf-m2', name: 'Kilogram-force per m²', symbol: 'kgf/m²', toBase: 9.80665, fromBase: 1 / 9.80665 },
+    { id: 'technical-atmosphere', name: 'Technical Atmosphere', symbol: 'at', toBase: 98066.5, fromBase: 1 / 98066.5 },
+    { id: 'water-meter', name: 'Meter of Water', symbol: 'mH₂O', toBase: 9806.65, fromBase: 1 / 9806.65 },
+    { id: 'water-inch', name: 'Inch of Water', symbol: 'inH₂O', toBase: 249.08891, fromBase: 1 / 249.08891 },
+    { id: 'dyne-cm2', name: 'Dyne per cm²', symbol: 'dyn/cm²', toBase: 0.1, fromBase: 10 },
+  ],
+};

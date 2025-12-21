@@ -1,0 +1,31 @@
+import { UnitCategory } from '../types';
+
+export const powerCategory: UnitCategory = {
+  id: 'power',
+  name: 'Power',
+  description: 'Convert between different units of power',
+  icon: 'BatteryCharging',
+  baseUnit: 'watt',
+  units: [
+    { id: 'watt', name: 'Watt', symbol: 'W', toBase: 1, fromBase: 1 },
+    { id: 'kilowatt', name: 'Kilowatt', symbol: 'kW', toBase: 1000, fromBase: 0.001 },
+    { id: 'megawatt', name: 'Megawatt', symbol: 'MW', toBase: 1000000, fromBase: 0.000001 },
+    { id: 'gigawatt', name: 'Gigawatt', symbol: 'GW', toBase: 1e9, fromBase: 1e-9 },
+    { id: 'milliwatt', name: 'Milliwatt', symbol: 'mW', toBase: 0.001, fromBase: 1000 },
+    { id: 'microwatt', name: 'Microwatt', symbol: 'μW', toBase: 0.000001, fromBase: 1000000 },
+    { id: 'horsepower', name: 'Horsepower (mechanical)', symbol: 'hp', toBase: 745.699872, fromBase: 1 / 745.699872 },
+    { id: 'horsepower-metric', name: 'Horsepower (metric)', symbol: 'hp(M)', toBase: 735.49875, fromBase: 1 / 735.49875 },
+    { id: 'horsepower-electric', name: 'Horsepower (electric)', symbol: 'hp(E)', toBase: 746, fromBase: 1 / 746 },
+    { id: 'horsepower-boiler', name: 'Horsepower (boiler)', symbol: 'hp(S)', toBase: 9809.5, fromBase: 1 / 9809.5 },
+    { id: 'btu-hour', name: 'BTU per Hour', symbol: 'BTU/h', toBase: 0.29307107, fromBase: 1 / 0.29307107 },
+    { id: 'btu-minute', name: 'BTU per Minute', symbol: 'BTU/min', toBase: 17.584264, fromBase: 1 / 17.584264 },
+    { id: 'btu-second', name: 'BTU per Second', symbol: 'BTU/s', toBase: 1055.05585, fromBase: 1 / 1055.05585 },
+    { id: 'calorie-second', name: 'Calorie per Second', symbol: 'cal/s', toBase: 4.184, fromBase: 1 / 4.184 },
+    { id: 'kilocalorie-hour', name: 'Kilocalorie per Hour', symbol: 'kcal/h', toBase: 1.163, fromBase: 1 / 1.163 },
+    { id: 'foot-pound-second', name: 'Foot-pound per Second', symbol: 'ft·lbf/s', toBase: 1.3558179483, fromBase: 1 / 1.3558179483 },
+    { id: 'foot-pound-minute', name: 'Foot-pound per Minute', symbol: 'ft·lbf/min', toBase: 0.022596965, fromBase: 1 / 0.022596965 },
+    { id: 'erg-second', name: 'Erg per Second', symbol: 'erg/s', toBase: 1e-7, fromBase: 1e7 },
+    { id: 'ton-refrigeration', name: 'Ton of Refrigeration', symbol: 'TR', toBase: 3516.8528, fromBase: 1 / 3516.8528 },
+    { id: 'pferdestarke', name: 'Pferdestärke', symbol: 'PS', toBase: 735.49875, fromBase: 1 / 735.49875 },
+  ],
+};

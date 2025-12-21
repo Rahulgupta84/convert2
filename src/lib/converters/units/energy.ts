@@ -1,0 +1,32 @@
+import { UnitCategory } from '../types';
+
+export const energyCategory: UnitCategory = {
+  id: 'energy',
+  name: 'Energy',
+  description: 'Convert between different units of energy',
+  icon: 'Zap',
+  baseUnit: 'joule',
+  units: [
+    { id: 'joule', name: 'Joule', symbol: 'J', toBase: 1, fromBase: 1 },
+    { id: 'kilojoule', name: 'Kilojoule', symbol: 'kJ', toBase: 1000, fromBase: 0.001 },
+    { id: 'megajoule', name: 'Megajoule', symbol: 'MJ', toBase: 1000000, fromBase: 0.000001 },
+    { id: 'gigajoule', name: 'Gigajoule', symbol: 'GJ', toBase: 1e9, fromBase: 1e-9 },
+    { id: 'calorie', name: 'Calorie', symbol: 'cal', toBase: 4.184, fromBase: 1 / 4.184 },
+    { id: 'kilocalorie', name: 'Kilocalorie', symbol: 'kcal', toBase: 4184, fromBase: 1 / 4184 },
+    { id: 'watt-hour', name: 'Watt Hour', symbol: 'Wh', toBase: 3600, fromBase: 1 / 3600 },
+    { id: 'kilowatt-hour', name: 'Kilowatt Hour', symbol: 'kWh', toBase: 3600000, fromBase: 1 / 3600000 },
+    { id: 'megawatt-hour', name: 'Megawatt Hour', symbol: 'MWh', toBase: 3.6e9, fromBase: 1 / 3.6e9 },
+    { id: 'electronvolt', name: 'Electronvolt', symbol: 'eV', toBase: 1.602176634e-19, fromBase: 1 / 1.602176634e-19 },
+    { id: 'kiloelectronvolt', name: 'Kiloelectronvolt', symbol: 'keV', toBase: 1.602176634e-16, fromBase: 1 / 1.602176634e-16 },
+    { id: 'megaelectronvolt', name: 'Megaelectronvolt', symbol: 'MeV', toBase: 1.602176634e-13, fromBase: 1 / 1.602176634e-13 },
+    { id: 'btu', name: 'British Thermal Unit', symbol: 'BTU', toBase: 1055.05585262, fromBase: 1 / 1055.05585262 },
+    { id: 'therm', name: 'Therm', symbol: 'thm', toBase: 105505585.262, fromBase: 1 / 105505585.262 },
+    { id: 'foot-pound', name: 'Foot-pound', symbol: 'ft·lbf', toBase: 1.3558179483, fromBase: 1 / 1.3558179483 },
+    { id: 'erg', name: 'Erg', symbol: 'erg', toBase: 1e-7, fromBase: 1e7 },
+    { id: 'hartree', name: 'Hartree', symbol: 'Eh', toBase: 4.359744e-18, fromBase: 1 / 4.359744e-18 },
+    { id: 'rydberg', name: 'Rydberg', symbol: 'Ry', toBase: 2.179872e-18, fromBase: 1 / 2.179872e-18 },
+    { id: 'ton-tnt', name: 'Ton of TNT', symbol: 'tTNT', toBase: 4.184e9, fromBase: 1 / 4.184e9 },
+    { id: 'kilogram-tnt', name: 'Kilogram of TNT', symbol: 'kgTNT', toBase: 4.184e6, fromBase: 1 / 4.184e6 },
+    { id: 'quad', name: 'Quad', symbol: 'quad', toBase: 1.05505585262e18, fromBase: 1 / 1.05505585262e18 },
+  ],
+};

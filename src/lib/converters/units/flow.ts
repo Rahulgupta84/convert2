@@ -1,0 +1,53 @@
+import { UnitCategory } from '../types';
+
+export const flowCategory: UnitCategory = {
+  id: 'flow',
+  name: 'Volumetric Flow Rate',
+  description: 'Convert between different units of volumetric flow rate',
+  icon: 'Droplets',
+  baseUnit: 'cubic-meter-per-second',
+  units: [
+    { id: 'cubic-meter-per-second', name: 'Cubic Meter per Second', symbol: 'm³/s', toBase: 1, fromBase: 1 },
+    { id: 'cubic-meter-per-minute', name: 'Cubic Meter per Minute', symbol: 'm³/min', toBase: 1 / 60, fromBase: 60 },
+    { id: 'cubic-meter-per-hour', name: 'Cubic Meter per Hour', symbol: 'm³/h', toBase: 1 / 3600, fromBase: 3600 },
+    { id: 'cubic-meter-per-day', name: 'Cubic Meter per Day', symbol: 'm³/d', toBase: 1 / 86400, fromBase: 86400 },
+    { id: 'liter-per-second', name: 'Liter per Second', symbol: 'L/s', toBase: 0.001, fromBase: 1000 },
+    { id: 'liter-per-minute', name: 'Liter per Minute', symbol: 'L/min', toBase: 0.001 / 60, fromBase: 60000 },
+    { id: 'liter-per-hour', name: 'Liter per Hour', symbol: 'L/h', toBase: 0.001 / 3600, fromBase: 3600000 },
+    { id: 'milliliter-per-second', name: 'Milliliter per Second', symbol: 'mL/s', toBase: 0.000001, fromBase: 1000000 },
+    { id: 'milliliter-per-minute', name: 'Milliliter per Minute', symbol: 'mL/min', toBase: 0.000001 / 60, fromBase: 60000000 },
+    { id: 'cubic-foot-per-second', name: 'Cubic Foot per Second', symbol: 'ft³/s', toBase: 0.028316846592, fromBase: 1 / 0.028316846592 },
+    { id: 'cubic-foot-per-minute', name: 'Cubic Foot per Minute (CFM)', symbol: 'CFM', toBase: 0.028316846592 / 60, fromBase: 60 / 0.028316846592 },
+    { id: 'cubic-foot-per-hour', name: 'Cubic Foot per Hour', symbol: 'ft³/h', toBase: 0.028316846592 / 3600, fromBase: 3600 / 0.028316846592 },
+    { id: 'gallon-per-second-us', name: 'Gallon per Second (US)', symbol: 'gal/s (US)', toBase: 0.003785411784, fromBase: 1 / 0.003785411784 },
+    { id: 'gallon-per-minute-us', name: 'Gallon per Minute (US)', symbol: 'GPM (US)', toBase: 0.003785411784 / 60, fromBase: 60 / 0.003785411784 },
+    { id: 'gallon-per-hour-us', name: 'Gallon per Hour (US)', symbol: 'gal/h (US)', toBase: 0.003785411784 / 3600, fromBase: 3600 / 0.003785411784 },
+    { id: 'gallon-per-day-us', name: 'Gallon per Day (US)', symbol: 'gal/d (US)', toBase: 0.003785411784 / 86400, fromBase: 86400 / 0.003785411784 },
+    { id: 'gallon-per-minute-uk', name: 'Gallon per Minute (UK)', symbol: 'GPM (UK)', toBase: 0.00454609 / 60, fromBase: 60 / 0.00454609 },
+    { id: 'barrel-per-day', name: 'Barrel per Day (Oil)', symbol: 'bbl/d', toBase: 0.158987294928 / 86400, fromBase: 86400 / 0.158987294928 },
+    { id: 'acre-foot-per-day', name: 'Acre-foot per Day', symbol: 'ac·ft/d', toBase: 1233.48185532 / 86400, fromBase: 86400 / 1233.48185532 },
+  ],
+};
+
+export const flowMassCategory: UnitCategory = {
+  id: 'flow-mass',
+  name: 'Mass Flow Rate',
+  description: 'Convert between different units of mass flow rate',
+  icon: 'Droplet',
+  baseUnit: 'kilogram-per-second',
+  units: [
+    { id: 'kilogram-per-second', name: 'Kilogram per Second', symbol: 'kg/s', toBase: 1, fromBase: 1 },
+    { id: 'kilogram-per-minute', name: 'Kilogram per Minute', symbol: 'kg/min', toBase: 1 / 60, fromBase: 60 },
+    { id: 'kilogram-per-hour', name: 'Kilogram per Hour', symbol: 'kg/h', toBase: 1 / 3600, fromBase: 3600 },
+    { id: 'kilogram-per-day', name: 'Kilogram per Day', symbol: 'kg/d', toBase: 1 / 86400, fromBase: 86400 },
+    { id: 'gram-per-second', name: 'Gram per Second', symbol: 'g/s', toBase: 0.001, fromBase: 1000 },
+    { id: 'gram-per-minute', name: 'Gram per Minute', symbol: 'g/min', toBase: 0.001 / 60, fromBase: 60000 },
+    { id: 'gram-per-hour', name: 'Gram per Hour', symbol: 'g/h', toBase: 0.001 / 3600, fromBase: 3600000 },
+    { id: 'ton-per-hour', name: 'Metric Ton per Hour', symbol: 't/h', toBase: 1000 / 3600, fromBase: 3600 / 1000 },
+    { id: 'ton-per-day', name: 'Metric Ton per Day', symbol: 't/d', toBase: 1000 / 86400, fromBase: 86400 / 1000 },
+    { id: 'pound-per-second', name: 'Pound per Second', symbol: 'lb/s', toBase: 0.45359237, fromBase: 1 / 0.45359237 },
+    { id: 'pound-per-minute', name: 'Pound per Minute', symbol: 'lb/min', toBase: 0.45359237 / 60, fromBase: 60 / 0.45359237 },
+    { id: 'pound-per-hour', name: 'Pound per Hour', symbol: 'lb/h', toBase: 0.45359237 / 3600, fromBase: 3600 / 0.45359237 },
+    { id: 'short-ton-per-hour', name: 'Short Ton per Hour', symbol: 'ton/h (US)', toBase: 907.18474 / 3600, fromBase: 3600 / 907.18474 },
+  ],
+};

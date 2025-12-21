@@ -1,0 +1,33 @@
+import { UnitCategory } from '../types';
+
+export const lengthCategory: UnitCategory = {
+  id: 'length',
+  name: 'Length',
+  description: 'Convert between different units of length and distance',
+  icon: 'Ruler',
+  baseUnit: 'meter',
+  units: [
+    { id: 'meter', name: 'Meter', symbol: 'm', toBase: 1, fromBase: 1 },
+    { id: 'kilometer', name: 'Kilometer', symbol: 'km', toBase: 1000, fromBase: 0.001 },
+    { id: 'centimeter', name: 'Centimeter', symbol: 'cm', toBase: 0.01, fromBase: 100 },
+    { id: 'millimeter', name: 'Millimeter', symbol: 'mm', toBase: 0.001, fromBase: 1000 },
+    { id: 'micrometer', name: 'Micrometer', symbol: 'μm', toBase: 0.000001, fromBase: 1000000 },
+    { id: 'nanometer', name: 'Nanometer', symbol: 'nm', toBase: 1e-9, fromBase: 1e9 },
+    { id: 'picometer', name: 'Picometer', symbol: 'pm', toBase: 1e-12, fromBase: 1e12 },
+    { id: 'mile', name: 'Mile', symbol: 'mi', toBase: 1609.344, fromBase: 1 / 1609.344 },
+    { id: 'yard', name: 'Yard', symbol: 'yd', toBase: 0.9144, fromBase: 1 / 0.9144 },
+    { id: 'foot', name: 'Foot', symbol: 'ft', toBase: 0.3048, fromBase: 1 / 0.3048 },
+    { id: 'inch', name: 'Inch', symbol: 'in', toBase: 0.0254, fromBase: 1 / 0.0254 },
+    { id: 'nautical-mile', name: 'Nautical Mile', symbol: 'nmi', toBase: 1852, fromBase: 1 / 1852 },
+    { id: 'light-year', name: 'Light Year', symbol: 'ly', toBase: 9.461e15, fromBase: 1 / 9.461e15 },
+    { id: 'astronomical-unit', name: 'Astronomical Unit', symbol: 'AU', toBase: 1.496e11, fromBase: 1 / 1.496e11 },
+    { id: 'parsec', name: 'Parsec', symbol: 'pc', toBase: 3.086e16, fromBase: 1 / 3.086e16 },
+    { id: 'fathom', name: 'Fathom', symbol: 'fth', toBase: 1.8288, fromBase: 1 / 1.8288 },
+    { id: 'furlong', name: 'Furlong', symbol: 'fur', toBase: 201.168, fromBase: 1 / 201.168 },
+    { id: 'chain', name: 'Chain', symbol: 'ch', toBase: 20.1168, fromBase: 1 / 20.1168 },
+    { id: 'rod', name: 'Rod', symbol: 'rd', toBase: 5.0292, fromBase: 1 / 5.0292 },
+    { id: 'hand', name: 'Hand', symbol: 'hh', toBase: 0.1016, fromBase: 1 / 0.1016 },
+    { id: 'angstrom', name: 'Angstrom', symbol: 'Å', toBase: 1e-10, fromBase: 1e10 },
+    { id: 'thou', name: 'Thou (mil)', symbol: 'th', toBase: 0.0000254, fromBase: 1 / 0.0000254 },
+  ],
+};
