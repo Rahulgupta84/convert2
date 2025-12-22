@@ -10,7 +10,7 @@ export function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <Calculator className="h-6 w-6" />
-              <span className="font-bold">UnitConvert</span>
+              <span className="font-bold">Convert2</span>
             </Link>
             <p className="text-sm text-muted-foreground">
               Free online unit converter with 79+ categories and 1000+ units.
@@ -39,7 +39,7 @@ export function Footer() {
 
         <div className="border-t mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} UnitConvert. All rights reserved.
+            &copy; {new Date().getFullYear()} Convert2. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <Link

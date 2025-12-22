@@ -28,7 +28,7 @@ test.describe('Home Page', () => {
 
   test('should have proper SEO meta tags', async ({ page }) => {
     const title = await page.title();
-    expect(title).toContain('UnitConvert');
+    expect(title).toContain('Convert2');
 
     const description = await page.getAttribute('meta[name="description"]', 'content');
     expect(description).toBeTruthy();

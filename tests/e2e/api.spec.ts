@@ -106,7 +106,7 @@ test.describe('API Endpoints', () => {
       expect(response.ok()).toBeTruthy();
 
       const data = await response.json();
-      expect(data.name).toBe('UnitConvert MCP Server');
+      expect(data.name).toBe('Convert2 MCP Server');
       expect(data.tools.length).toBeGreaterThan(0);
     });
 
@@ -122,7 +122,7 @@ test.describe('API Endpoints', () => {
 
       const data = await response.json();
       expect(data.jsonrpc).toBe('2.0');
-      expect(data.result.serverInfo.name).toBe('unitconvert-mcp');
+      expect(data.result.serverInfo.name).toBe('convert2-mcp');
     });
 
     test('should list available tools', async ({ request }) => {

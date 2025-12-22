@@ -28,8 +28,8 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
   title: {
-    default: 'UnitConvert - Free Online Unit Converter | Convert Any Unit Instantly',
-    template: '%s | UnitConvert',
+    default: 'Convert2 - Free Online Unit Converter | Convert Any Unit Instantly',
+    template: '%s | Convert2',
   },
   description:
     'Free online unit converter with 79+ categories and 1000+ units. Convert length, weight, temperature, volume, area, speed, and more. Accurate, fast, and easy to use.',
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
     'volume converter',
     'free converter',
   ],
-  authors: [{ name: 'UnitConvert' }],
-  creator: 'UnitConvert',
-  publisher: 'UnitConvert',
+  authors: [{ name: 'Convert2' }],
+  creator: 'Convert2',
+  publisher: 'Convert2',
   robots: {
     index: true,
     follow: true,
@@ -62,14 +62,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    siteName: 'UnitConvert',
-    title: 'UnitConvert - Free Online Unit Converter',
+    siteName: 'Convert2',
+    title: 'Convert2 - Free Online Unit Converter',
     description:
       'Convert any unit instantly with our free online converter. 79+ categories, 1000+ units.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'UnitConvert - Free Online Unit Converter',
+    title: 'Convert2 - Free Online Unit Converter',
     description:
       'Convert any unit instantly with our free online converter. 79+ categories, 1000+ units.',
   },

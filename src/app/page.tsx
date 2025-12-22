@@ -133,9 +133,9 @@ export default function HomePage() {
 
       {/* SEO Content Section */}
       <section className="mt-16 prose prose-gray dark:prose-invert max-w-none">
-        <h2>About UnitConvert</h2>
+        <h2>About Convert2</h2>
         <p>
-          UnitConvert is a comprehensive online unit conversion tool designed to help you
+          Convert2 is a comprehensive online unit conversion tool designed to help you
           convert between different units of measurement quickly and accurately. Whether
           you need to convert length measurements like centimeters to inches, weight
           measurements like kilograms to pounds, or temperature from Celsius to Fahrenheit,

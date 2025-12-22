@@ -30,7 +30,7 @@ export function Header() {
               <nav className="flex flex-col gap-4 mt-8">
                 <Link href="/" className="flex items-center gap-2 font-semibold">
                   <Calculator className="h-5 w-5" />
-                  UnitConvert
+                  Convert2
                 </Link>
                 {categoryGroups.map((group) => (
                   <div key={group.name} className="space-y-2">
@@ -56,7 +56,7 @@ export function Header() {
 
           <Link href="/" className="flex items-center gap-2">
             <Calculator className="h-6 w-6" />
-            <span className="font-bold text-xl hidden sm:inline">UnitConvert</span>
+            <span className="font-bold text-xl hidden sm:inline">Convert2</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-6 ml-6">

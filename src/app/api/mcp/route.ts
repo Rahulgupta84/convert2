@@ -187,7 +187,7 @@ export async function POST(request: NextRequest) {
         response.result = {
           protocolVersion: '2024-11-05',
           serverInfo: {
-            name: 'unitconvert-mcp',
+            name: 'convert2-mcp',
             version: '1.0.0',
           },
           capabilities: {
@@ -252,7 +252,7 @@ export async function POST(request: NextRequest) {
 // GET endpoint for discovery
 export async function GET() {
   return NextResponse.json({
-    name: 'UnitConvert MCP Server',
+    name: 'Convert2 MCP Server',
     version: '1.0.0',
     description: 'Model Context Protocol server for unit conversions. Supports 79+ categories and 1000+ units.',
     protocol: 'MCP',

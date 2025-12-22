@@ -58,7 +58,7 @@ export default function ConvertersPage() {
       <section className="mt-16 prose prose-gray dark:prose-invert max-w-none">
         <h2>About Our Unit Converters</h2>
         <p>
-          UnitConvert provides a comprehensive suite of {allCategories.length}+ unit conversion
+          Convert2 provides a comprehensive suite of {allCategories.length}+ unit conversion
           tools organized into {categoryGroups.length} categories. Our converters cover everything
           from everyday measurements like length, weight, and temperature to specialized
           engineering and scientific units.
