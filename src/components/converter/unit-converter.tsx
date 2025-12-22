@@ -94,22 +94,23 @@ export function UnitConverter({
           <CardDescription>{category.description}</CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-          <div className="grid gap-6 md:grid-cols-[1fr,auto,1fr]">
+          <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-stretch">
             {/* From Unit */}
-            <div className="space-y-2">
-              <Label htmlFor="from-value">From</Label>
-              <div className="flex gap-2">
-                <Input
-                  id="from-value"
-                  type="number"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  className="flex-1"
-                  placeholder="Enter value"
-                />
-              </div>
+            <div className="flex-1 rounded-xl border-2 border-gray-200 bg-gray-50/50 p-4 space-y-3 focus-within:border-primary focus-within:bg-white transition-colors">
+              <Label htmlFor="from-value" className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
+                From
+              </Label>
+              <Input
+                id="from-value"
+                type="number"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                className="w-full text-lg font-medium border-2 border-gray-300 focus:border-primary bg-white h-12"
+                placeholder="Enter value"
+                tabIndex={1}
+              />
               <Select value={fromUnit} onValueChange={setFromUnit}>
-                <SelectTrigger>
+                <SelectTrigger className="w-full border-2 border-gray-300 focus:border-primary bg-white h-11" tabIndex={2}>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -123,12 +124,13 @@ export function UnitConverter({
             </div>
 
             {/* Swap Button */}
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center py-2 lg:py-0 shrink-0">
               <Button
                 variant="outline"
                 size="icon"
                 onClick={swapUnits}
-                className="mt-6"
+                className="h-10 w-10 rounded-full border-2 border-gray-300 hover:border-primary hover:bg-primary/5"
+                tabIndex={5}
               >
                 <ArrowRightLeft className="h-4 w-4" />
                 <span className="sr-only">Swap units</span>
@@ -136,33 +138,38 @@ export function UnitConverter({
             </div>
 
             {/* To Unit */}
-            <div className="space-y-2">
-              <Label htmlFor="to-value">To</Label>
+            <div className="flex-1 rounded-xl border-2 border-gray-200 bg-gray-50/50 p-4 space-y-3 focus-within:border-primary focus-within:bg-white transition-colors">
+              <Label htmlFor="to-value" className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
+                To
+              </Label>
               <div className="flex gap-2">
                 <Input
                   id="to-value"
                   type="text"
                   value={result ? formatNumber(result.to.value) : ''}
                   readOnly
-                  className="flex-1 bg-muted"
+                  className="flex-1 text-lg font-medium border-2 border-gray-300 bg-white h-12 text-primary"
                   placeholder="Result"
+                  tabIndex={-1}
                 />
                 <Button
                   variant="outline"
                   size="icon"
                   onClick={copyResult}
                   disabled={!result}
+                  className="h-12 w-12 border-2 border-gray-300 hover:border-primary shrink-0"
+                  tabIndex={4}
                 >
                   {copied ? (
-                    <Check className="h-4 w-4" />
+                    <Check className="h-5 w-5 text-green-600" />
                   ) : (
-                    <Copy className="h-4 w-4" />
+                    <Copy className="h-5 w-5" />
                   )}
                   <span className="sr-only">Copy result</span>
                 </Button>
               </div>
               <Select value={toUnit} onValueChange={setToUnit}>
-                <SelectTrigger>
+                <SelectTrigger className="w-full border-2 border-gray-300 focus:border-primary bg-white h-11" tabIndex={3}>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>

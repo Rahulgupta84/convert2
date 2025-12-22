@@ -1,109 +1,106 @@
 import Link from 'next/link';
 import { ArrowRight, Zap, Shield, Globe, Bot } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { categoryGroups, allCategories } from '@/lib/converters';
+import { HeroShader } from '@/components/shaders/hero-shader';
+import {
+  AnimatedCardGrid,
+  AnimatedFeatureCard,
+  AnimatedConverterCard,
+  AnimatedCategoryLink,
+} from '@/components/animations/animated-cards';
+
+const features = [
+  {
+    icon: <Zap className="h-10 w-10" />,
+    title: 'Lightning Fast',
+    description: 'Instant conversions with no page reloads. Calculate on the fly as you type.',
+  },
+  {
+    icon: <Shield className="h-10 w-10" />,
+    title: 'Accurate Results',
+    description: 'Precision-engineered formulas based on international standards.',
+  },
+  {
+    icon: <Globe className="h-10 w-10" />,
+    title: 'All Units',
+    description: 'From everyday conversions to specialized engineering units.',
+  },
+  {
+    icon: <Bot className="h-10 w-10" />,
+    title: 'AI Ready',
+    description: 'MCP server integration allows AI assistants to use our converters directly.',
+  },
+];
+
+const popularConverters = [
+  { id: 'length', name: 'Length Converter', example: 'cm to inches' },
+  { id: 'weight', name: 'Weight Converter', example: 'kg to lbs' },
+  { id: 'temperature', name: 'Temperature Converter', example: '°C to °F' },
+  { id: 'volume', name: 'Volume Converter', example: 'liters to gallons' },
+  { id: 'area', name: 'Area Converter', example: 'm² to ft²' },
+  { id: 'speed', name: 'Speed Converter', example: 'km/h to mph' },
+  { id: 'pressure', name: 'Pressure Converter', example: 'psi to bar' },
+  { id: 'energy', name: 'Energy Converter', example: 'joules to calories' },
+];
 
 export default function HomePage() {
   return (
     <div className="container py-8 md:py-12">
-      {/* Hero Section */}
-      <section className="text-center mb-12 md:mb-16">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
-          Convert Any Unit
-          <span className="text-primary block">Instantly</span>
-        </h1>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-          Free online unit converter with {allCategories.length}+ categories and 1000+ units.
-          Accurate, fast, and optimized for AI assistants.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <Button size="lg" asChild>
-            <Link href="/converters">
-              Browse All Converters
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-          <Button size="lg" variant="outline" asChild>
-            <Link href="/api-docs">API Documentation</Link>
-          </Button>
+      {/* Hero Section with Shader Background */}
+      <section className="relative text-center mb-12 md:mb-16 py-16 md:py-24 px-6 rounded-2xl overflow-hidden">
+        {/* Shader background */}
+        <HeroShader />
+
+        {/* Content overlay with glass effect */}
+        <div className="relative z-10 bg-white/60 backdrop-blur-lg rounded-xl p-8 md:p-12 max-w-3xl mx-auto shadow-sm">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 text-gray-900">
+            Convert Any Unit
+            <span className="text-primary block">Instantly</span>
+          </h1>
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+            Free online unit converter with {allCategories.length}+ categories and 1000+ units.
+            Accurate, fast, and optimized for AI assistants.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button size="lg" asChild>
+              <Link href="/converters">
+                Browse All Converters
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <Link href="/api-docs">API Documentation</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
       {/* Features */}
-      <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 md:mb-16">
-        <Card>
-          <CardHeader>
-            <Zap className="h-10 w-10 text-primary mb-2" />
-            <CardTitle>Lightning Fast</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">
-              Instant conversions with no page reloads. Calculate on the fly as you type.
-            </p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <Shield className="h-10 w-10 text-primary mb-2" />
-            <CardTitle>Accurate Results</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">
-              Precision-engineered formulas based on international standards.
-            </p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <Globe className="h-10 w-10 text-primary mb-2" />
-            <CardTitle>All Units</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">
-              From everyday conversions to specialized engineering units.
-            </p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <Bot className="h-10 w-10 text-primary mb-2" />
-            <CardTitle>AI Ready</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">
-              MCP server integration allows AI assistants to use our converters directly.
-            </p>
-          </CardContent>
-        </Card>
-      </section>
+      <AnimatedCardGrid className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 md:mb-16">
+        {features.map((feature) => (
+          <AnimatedFeatureCard
+            key={feature.title}
+            icon={feature.icon}
+            title={feature.title}
+            description={feature.description}
+          />
+        ))}
+      </AnimatedCardGrid>
 
       {/* Quick Access Popular Converters */}
       <section className="mb-12 md:mb-16">
         <h2 className="text-2xl md:text-3xl font-bold mb-6">Popular Converters</h2>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {[
-            { id: 'length', name: 'Length', example: 'cm to inches' },
-            { id: 'weight', name: 'Weight', example: 'kg to lbs' },
-            { id: 'temperature', name: 'Temperature', example: '°C to °F' },
-            { id: 'volume', name: 'Volume', example: 'liters to gallons' },
-            { id: 'area', name: 'Area', example: 'm² to ft²' },
-            { id: 'speed', name: 'Speed', example: 'km/h to mph' },
-            { id: 'pressure', name: 'Pressure', example: 'psi to bar' },
-            { id: 'energy', name: 'Energy', example: 'joules to calories' },
-          ].map((item) => (
-            <Link
+        <AnimatedCardGrid className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {popularConverters.map((item) => (
+            <AnimatedConverterCard
               key={item.id}
               href={`/convert/${item.id}`}
-              className="group p-4 border rounded-lg hover:border-primary hover:bg-muted/50 transition-all"
-            >
-              <h3 className="font-medium group-hover:text-primary transition-colors">
-                {item.name} Converter
-              </h3>
-              <p className="text-sm text-muted-foreground">{item.example}</p>
-            </Link>
+              name={item.name}
+              example={item.example}
+            />
           ))}
-        </div>
+        </AnimatedCardGrid>
       </section>
 
       {/* All Categories by Group */}
@@ -115,17 +112,15 @@ export default function HomePage() {
               <h3 className="text-xl font-semibold mb-4 text-muted-foreground">
                 {group.name}
               </h3>
-              <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+              <AnimatedCardGrid className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
                 {group.categories.map((cat) => (
-                  <Link
+                  <AnimatedCategoryLink
                     key={cat.id}
                     href={`/convert/${cat.id}`}
-                    className="p-3 border rounded-lg hover:border-primary hover:bg-muted/50 transition-all"
-                  >
-                    <span className="font-medium">{cat.name}</span>
-                  </Link>
+                    name={cat.name}
+                  />
                 ))}
-              </div>
+              </AnimatedCardGrid>
             </div>
           ))}
         </div>
