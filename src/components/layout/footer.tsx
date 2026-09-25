@@ -224,6 +224,7 @@ export function Footer() {
                   Darthwares
                 </a>
               </span>
+              <span>Created by Rahul Gupta</span>
             </div>
 
             <div className="flex items-center gap-6">

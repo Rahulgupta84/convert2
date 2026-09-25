@@ -20,6 +20,10 @@ test.describe('Home Page', () => {
     await expect(page.getByRole('link', { name: /Weight Converter/i })).toBeVisible();
   });
 
+  test('should credit the creator in the footer', async ({ page }) => {
+    await expect(page.getByText('Created by Rahul Gupta')).toBeVisible();
+  });
+
   test('should navigate to length converter', async ({ page }) => {
     await page.getByRole('link', { name: /Length Converter/i }).first().click();
     await expect(page).toHaveURL(/\/convert\/length/);
