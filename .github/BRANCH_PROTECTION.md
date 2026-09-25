@@ -1,3 +1,6 @@
+----
+marp:true
+----
 # Branch Protection Rules for Default Branch
 
 These settings must be configured manually in GitHub repository settings.
