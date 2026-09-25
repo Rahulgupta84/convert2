@@ -213,16 +213,11 @@ export function Footer() {
             <div className="flex flex-col sm:flex-row items-center gap-2 text-sm text-muted-foreground">
               <span>&copy; {new Date().getFullYear()} Convert2. All rights reserved.</span>
               <span className="hidden sm:inline">|</span>
-              <span className="flex items-center gap-1">
-                Made with <Heart className="h-3 w-3 text-red-500 fill-red-500" /> by{' '}
-                <a
-                  href="https://darthwares.com"
-                  target="_blank"
-                  rel="noopener"
-                  className="text-primary hover:underline"
-                >
-                  Darthwares
-                </a>
+              <span className="flex flex-col items-center sm:items-start gap-1">
+                <span className="flex items-center gap-1">
+                  Made with <Heart className="h-3 w-3 text-red-500 fill-red-500" /> by{' '}
+                  <span className="text-primary">Rahul Gupta</span>
+                </span>
               </span>
             </div>
 

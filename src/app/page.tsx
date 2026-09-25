@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { ArrowRight, Zap, Shield, Globe, Bot, Calculator, CheckCircle, Users, Clock } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight, Zap, Shield, Globe, Bot, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { categoryGroups, allCategories } from '@/lib/converters';
 import { HeroShader } from '@/components/shaders/hero-shader';
@@ -46,22 +47,22 @@ const popularConverters = [
 
 const useCases = [
   {
-    icon: <Users className="h-6 w-6" />,
+    image: '/images/use-cases/students-educators.png',
     title: 'Students & Educators',
     description: 'Perfect for homework, science projects, and teaching unit conversions.',
   },
   {
-    icon: <Calculator className="h-6 w-6" />,
+    image: '/images/use-cases/engineers-scientists.png',
     title: 'Engineers & Scientists',
     description: 'Precise calculations for professional and scientific applications.',
   },
   {
-    icon: <Globe className="h-6 w-6" />,
+    image: '/images/use-cases/international-business.png',
     title: 'International Business',
     description: 'Convert between metric and imperial for global operations.',
   },
   {
-    icon: <Clock className="h-6 w-6" />,
+    image: '/images/use-cases/everyday-use.png',
     title: 'Everyday Use',
     description: 'Quick conversions for cooking, travel, fitness, and more.',
   },
@@ -166,9 +167,14 @@ export default function HomePage() {
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {useCases.map((useCase) => (
-            <div key={useCase.title} className="flex flex-col items-center text-center p-4">
-              <div className="p-3 rounded-xl bg-primary/10 text-primary mb-4">
-                {useCase.icon}
+            <div key={useCase.title} className="flex flex-col items-center text-center group">
+              <div className="relative w-full aspect-[4/3] mb-4 rounded-xl overflow-hidden shadow-sm group-hover:shadow-md transition-all duration-300">
+                <Image
+                  src={useCase.image}
+                  alt={useCase.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
               <h3 className="font-semibold mb-2">{useCase.title}</h3>
               <p className="text-sm text-muted-foreground">{useCase.description}</p>
