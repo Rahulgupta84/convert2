@@ -216,16 +216,8 @@ export function Footer() {
               <span className="flex flex-col items-center sm:items-start gap-1">
                 <span className="flex items-center gap-1">
                   Made with <Heart className="h-3 w-3 text-red-500 fill-red-500" /> by{' '}
-                  <a
-                    href="https://darthwares.com"
-                    target="_blank"
-                    rel="noopener"
-                    className="text-primary hover:underline"
-                  >
-                    Darthwares
-                  </a>
+                  <span className="text-primary">Rahul Gupta</span>
                 </span>
-                <span>Created by Rahul Gupta</span>
               </span>
             </div>
 
