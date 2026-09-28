@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { ArrowRightLeft, Copy, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -13,21 +13,51 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ConversionResult } from '@/lib/converters/types';
 import { convert, formatNumber, getPopularConversions, getCategory } from '@/lib/converters';
+import type { Unit } from '@/lib/converters/types';
 
 interface UnitConverterProps {
   categoryId: string;
   initialFromUnit?: string;
   initialToUnit?: string;
+  compact?: boolean;
+}
+
+function UnitSelect({
+  id,
+  label,
+  value,
+  onChange,
+  units,
+}: {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+  units: Unit[];
+}) {
+  return (
+    <Select value={value} onValueChange={onChange}>
+      <SelectTrigger id={id} aria-label={label} className="w-full h-11 bg-background">
+        <SelectValue />
+      </SelectTrigger>
+      <SelectContent>
+        {units.map((unit) => (
+          <SelectItem key={unit.id} value={unit.id}>
+            {unit.name} ({unit.symbol})
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  );
 }
 
 export function UnitConverter({
   categoryId,
   initialFromUnit,
   initialToUnit,
+  compact = false,
 }: UnitConverterProps) {
-  // Get category on the client side
   const category = useMemo(() => getCategory(categoryId), [categoryId]);
 
   const [fromUnit, setFromUnit] = useState<string>(
@@ -37,35 +67,12 @@ export function UnitConverter({
     initialToUnit || category?.units[1]?.id || ''
   );
   const [inputValue, setInputValue] = useState<string>('1');
-  const [result, setResult] = useState<ConversionResult | null>(null);
   const [copied, setCopied] = useState(false);
 
-  const performConversion = useCallback(() => {
-    if (!category) return;
-
-    const numValue = parseFloat(inputValue);
-    if (isNaN(numValue)) {
-      setResult(null);
-      return;
-    }
-
-    const conversionResult = convert(numValue, categoryId, fromUnit, toUnit);
-    setResult(conversionResult);
-  }, [inputValue, categoryId, fromUnit, toUnit, category]);
-
-  useEffect(() => {
-    performConversion();
-  }, [performConversion]);
-
-  // Update units when category changes
-  useEffect(() => {
-    if (category && !initialFromUnit) {
-      setFromUnit(category.units[0]?.id || '');
-    }
-    if (category && !initialToUnit) {
-      setToUnit(category.units[1]?.id || '');
-    }
-  }, [category, initialFromUnit, initialToUnit]);
+  const numericValue = parseFloat(inputValue.replace(',', '.'));
+  const result = Number.isNaN(numericValue)
+    ? null
+    : convert(numericValue, categoryId, fromUnit, toUnit);
 
   const swapUnits = () => {
     setFromUnit(toUnit);
@@ -73,18 +80,108 @@ export function UnitConverter({
   };
 
   const copyResult = () => {
-    if (result) {
-      navigator.clipboard.writeText(formatNumber(result.to.value));
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
+    if (!result) return;
+    navigator.clipboard.writeText(formatNumber(result.to.value));
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   if (!category) {
-    return <div>Category not found</div>;
+    return <p className="text-destructive">Category not found</p>;
   }
 
-  const popularConversions = getPopularConversions(categoryId);
+  const fromUnitData = category.units.find((u) => u.id === fromUnit);
+  const toUnitData = category.units.find((u) => u.id === toUnit);
+  const popularConversions = compact ? [] : getPopularConversions(categoryId);
+
+  const converterBody = (
+    <div className="space-y-4">
+      <div className="flex flex-col md:flex-row gap-3 md:items-end">
+        <div className="flex-1 space-y-2">
+          <Label htmlFor={`${categoryId}-from-value`} className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            From
+          </Label>
+          <Input
+            id={`${categoryId}-from-value`}
+            type="text"
+            inputMode="decimal"
+            autoComplete="off"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            className="h-12 text-lg font-medium bg-background"
+            placeholder="Enter value"
+          />
+          <UnitSelect
+            id={`${categoryId}-from-unit`}
+            label="From unit"
+            value={fromUnit}
+            onChange={setFromUnit}
+            units={category.units}
+          />
+        </div>
+
+        <div className="flex justify-center md:pb-1">
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={swapUnits}
+            className="h-10 w-10 rounded-full rotate-90 md:rotate-0"
+          >
+            <ArrowRightLeft className="h-4 w-4" />
+            <span className="sr-only">Swap units</span>
+          </Button>
+        </div>
+
+        <div className="flex-1 space-y-2">
+          <span className="block text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            To
+          </span>
+          <UnitSelect
+            id={`${categoryId}-to-unit`}
+            label="To unit"
+            value={toUnit}
+            onChange={setToUnit}
+            units={category.units}
+          />
+        </div>
+      </div>
+
+      <div className="flex items-center gap-3 rounded-lg bg-primary/5 border border-primary/20 px-4 py-4">
+        <output
+          aria-live="polite"
+          className="flex-1 min-w-0 break-words"
+          htmlFor={`${categoryId}-from-value ${categoryId}-from-unit ${categoryId}-to-unit`}
+        >
+          {result ? (
+            <>
+              <span className="text-sm text-muted-foreground">
+                {formatNumber(result.from.value)} {fromUnitData?.symbol} =
+              </span>
+              <span className="block text-3xl md:text-4xl font-bold text-primary tabular-nums">
+                {formatNumber(result.to.value)}{' '}
+                <span className="text-xl md:text-2xl font-semibold">{toUnitData?.symbol}</span>
+              </span>
+            </>
+          ) : (
+            <span className="text-muted-foreground">Enter a number to convert</span>
+          )}
+        </output>
+        <Button variant="outline" size="icon" onClick={copyResult} disabled={!result} className="shrink-0">
+          {copied ? <Check className="h-4 w-4 text-primary" /> : <Copy className="h-4 w-4" />}
+          <span className="sr-only">{copied ? 'Copied' : 'Copy result'}</span>
+        </Button>
+      </div>
+
+      {result && (
+        <p className="text-sm text-muted-foreground font-mono">
+          <span className="sr-only">Formula: </span>
+          {result.formula}
+        </p>
+      )}
+    </div>
+  );
+
+  if (compact) return converterBody;
 
   return (
     <div className="space-y-6">
@@ -93,109 +190,9 @@ export function UnitConverter({
           <CardTitle>{category.name} Converter</CardTitle>
           <CardDescription>{category.description}</CardDescription>
         </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-stretch">
-            {/* From Unit */}
-            <div className="flex-1 rounded-xl border-2 border-gray-200 bg-gray-50/50 p-4 space-y-3 focus-within:border-primary focus-within:bg-white transition-colors">
-              <Label htmlFor="from-value" className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
-                From
-              </Label>
-              <Input
-                id="from-value"
-                type="number"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                className="w-full text-lg font-medium border-2 border-gray-300 focus:border-primary bg-white h-12"
-                placeholder="Enter value"
-                tabIndex={1}
-              />
-              <Select value={fromUnit} onValueChange={setFromUnit}>
-                <SelectTrigger className="w-full border-2 border-gray-300 focus:border-primary bg-white h-11" tabIndex={2}>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {category.units.map((unit) => (
-                    <SelectItem key={unit.id} value={unit.id}>
-                      {unit.name} ({unit.symbol})
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            {/* Swap Button */}
-            <div className="flex items-center justify-center py-2 lg:py-0 shrink-0">
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={swapUnits}
-                className="h-10 w-10 rounded-full border-2 border-gray-300 hover:border-primary hover:bg-primary/5"
-                tabIndex={5}
-              >
-                <ArrowRightLeft className="h-4 w-4" />
-                <span className="sr-only">Swap units</span>
-              </Button>
-            </div>
-
-            {/* To Unit */}
-            <div className="flex-1 rounded-xl border-2 border-gray-200 bg-gray-50/50 p-4 space-y-3 focus-within:border-primary focus-within:bg-white transition-colors">
-              <Label htmlFor="to-value" className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
-                To
-              </Label>
-              <div className="flex gap-2">
-                <Input
-                  id="to-value"
-                  type="text"
-                  value={result ? formatNumber(result.to.value) : ''}
-                  readOnly
-                  className="flex-1 text-lg font-medium border-2 border-gray-300 bg-white h-12 text-primary"
-                  placeholder="Result"
-                  tabIndex={-1}
-                />
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={copyResult}
-                  disabled={!result}
-                  className="h-12 w-12 border-2 border-gray-300 hover:border-primary shrink-0"
-                  tabIndex={4}
-                >
-                  {copied ? (
-                    <Check className="h-5 w-5 text-green-600" />
-                  ) : (
-                    <Copy className="h-5 w-5" />
-                  )}
-                  <span className="sr-only">Copy result</span>
-                </Button>
-              </div>
-              <Select value={toUnit} onValueChange={setToUnit}>
-                <SelectTrigger className="w-full border-2 border-gray-300 focus:border-primary bg-white h-11" tabIndex={3}>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {category.units.map((unit) => (
-                    <SelectItem key={unit.id} value={unit.id}>
-                      {unit.name} ({unit.symbol})
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-
-          {/* Formula Display */}
-          {result && (
-            <div className="p-4 bg-muted rounded-lg">
-              <p className="text-sm font-medium mb-1">Formula</p>
-              <p className="text-sm text-muted-foreground font-mono">
-                {result.formula}
-              </p>
-            </div>
-          )}
-        </CardContent>
+        <CardContent>{converterBody}</CardContent>
       </Card>
 
-      {/* Popular Conversions */}
       {popularConversions.length > 0 && (
         <Card>
           <CardHeader>
@@ -204,10 +201,9 @@ export function UnitConverter({
           <CardContent>
             <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
               {popularConversions.map(({ from, to }) => {
-                const fromUnitData = category.units.find((u) => u.id === from);
-                const toUnitData = category.units.find((u) => u.id === to);
-                if (!fromUnitData || !toUnitData) return null;
-
+                const f = category.units.find((u) => u.id === from);
+                const t = category.units.find((u) => u.id === to);
+                if (!f || !t) return null;
                 return (
                   <Button
                     key={`${from}-${to}`}
@@ -218,7 +214,7 @@ export function UnitConverter({
                       setToUnit(to);
                     }}
                   >
-                    {fromUnitData.name} → {toUnitData.name}
+                    {f.name} → {t.name}
                   </Button>
                 );
               })}
@@ -227,23 +223,37 @@ export function UnitConverter({
         </Card>
       )}
 
-      {/* All Units Reference */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-lg">All {category.name} Units</CardTitle>
+          <CardTitle className="text-lg">
+            1 {fromUnitData?.name} in all {category.name} units
+          </CardTitle>
+          <CardDescription>Click a unit to convert to it.</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {category.units.map((unit) => (
-              <div
-                key={unit.id}
-                className="p-3 border rounded-lg hover:bg-muted/50 transition-colors"
-              >
-                <p className="font-medium">{unit.name}</p>
-                <p className="text-sm text-muted-foreground">{unit.symbol}</p>
-              </div>
-            ))}
-          </div>
+          <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {category.units.map((unit) => {
+              const ref = convert(1, categoryId, fromUnit, unit.id);
+              const isActive = unit.id === toUnit;
+              return (
+                <li key={unit.id}>
+                  <button
+                    type="button"
+                    onClick={() => setToUnit(unit.id)}
+                    aria-pressed={isActive}
+                    className={`w-full text-left p-3 border rounded-lg transition-colors hover:border-primary hover:bg-primary/5 ${
+                      isActive ? 'border-primary bg-primary/5' : ''
+                    }`}
+                  >
+                    <span className="block font-medium">{unit.name}</span>
+                    <span className="block text-sm text-muted-foreground tabular-nums truncate">
+                      {ref ? formatNumber(ref.to.value) : '—'} {unit.symbol}
+                    </span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
         </CardContent>
       </Card>
     </div>

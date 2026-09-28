@@ -275,6 +275,8 @@ export const categoryGroups: CategoryGroup[] = [
   },
 ];
 
+export const totalUnitCount = allCategories.reduce((acc, cat) => acc + cat.units.length, 0);
+
 // Category lookup map
 export const categoryMap = new Map<string, UnitCategory>(
   allCategories.map((cat) => [cat.id, cat])
