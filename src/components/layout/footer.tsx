@@ -54,7 +54,7 @@ export function Footer() {
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <Calculator className="h-7 w-7 text-primary" />
-              <span className="font-bold text-xl">Convert2</span>
+              <span className="font-bold text-xl">Unit Converter</span>
             </Link>
             <p className="text-muted-foreground mb-4 max-w-sm">
               Free online unit converter with {allCategories.length}+ categories and 1000+ units.
@@ -211,7 +211,7 @@ export function Footer() {
         <div className="container py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex flex-col sm:flex-row items-center gap-2 text-sm text-muted-foreground">
-              <span>&copy; {new Date().getFullYear()} Convert2. All rights reserved.</span>
+              <span>&copy; {new Date().getFullYear()} Unit Converter. All rights reserved.</span>
               <span className="hidden sm:inline">|</span>
               <span className="flex flex-col items-center sm:items-start gap-1">
                 <span className="flex items-center gap-1">
@@ -222,14 +222,6 @@ export function Footer() {
             </div>
 
             <div className="flex items-center gap-6">
-              <a
-                href="https://github.com/Chibionos/convert2"
-                target="_blank"
-                rel="noopener"
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
-              >
-                GitHub
-              </a>
               <Link
                 href="/api-docs"
                 className="text-sm text-muted-foreground hover:text-primary transition-colors"
@@ -237,10 +229,10 @@ export function Footer() {
                 API
               </Link>
               <a
-                href="mailto:support@darthwares.com"
+                href="mailto:rahulgupta.bhopal@gmail.com"
                 className="text-sm text-muted-foreground hover:text-primary transition-colors"
               >
-                Contact
+                Contact us
               </a>
             </div>
           </div>

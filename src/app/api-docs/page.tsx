@@ -5,7 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { allCategories } from '@/lib/converters';
 
 export const metadata: Metadata = {
-  title: 'API Documentation - Convert2 API & MCP Server for AI',
+  title: 'API Documentation - Unit Converter API & MCP Server for AI',
   description: 'Free unit conversion API with MCP (Model Context Protocol) support. Enable AI assistants like Claude, ChatGPT, Cursor, and VS Code Copilot to perform unit conversions.',
   alternates: {
     canonical: '/api-docs',
@@ -32,7 +32,7 @@ export default function ApiDocsPage() {
               <Badge variant="secondary">MCP</Badge>
             </CardTitle>
             <CardDescription className="text-base">
-              Convert2 provides a Model Context Protocol (MCP) server that allows AI assistants
+              The Unit Converter provides a Model Context Protocol (MCP) server that allows AI assistants
               to perform accurate unit conversions directly. Compatible with Claude Desktop,
               Cursor IDE, VS Code Copilot, and any MCP-compatible client.
             </CardDescription>
@@ -67,7 +67,7 @@ export default function ApiDocsPage() {
               <Badge variant="secondary">AI Integration</Badge>
             </CardTitle>
             <CardDescription>
-              Connect your AI assistant to Convert2 for seamless unit conversions.
+              Connect your AI assistant to the Unit Converter for seamless unit conversions.
               Choose your platform below for specific configuration instructions.
             </CardDescription>
           </CardHeader>
@@ -84,14 +84,14 @@ export default function ApiDocsPage() {
                 <div>
                   <h4 className="font-semibold mb-2">Claude Desktop Configuration</h4>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Add Convert2 to your Claude Desktop MCP configuration file at{' '}
+                    Add the Unit Converter to your Claude Desktop MCP configuration file at{' '}
                     <code className="bg-muted px-1 rounded">~/.claude/mcp.json</code>
                   </p>
                   <pre className="bg-muted p-4 rounded-lg text-sm overflow-x-auto">
 {`{
   "mcpServers": {
-    "convert2": {
-      "url": "https://convert2.example.com/api/mcp",
+    "unit-converter": {
+      "url": "https://www.convert2.work/api/mcp",
       "transport": "http",
       "enabled_tools": ["convert_units", "list_categories", "list_units", "search_units"],
       "tool_timeout_sec": 30
@@ -116,16 +116,16 @@ export default function ApiDocsPage() {
                   <pre className="bg-muted p-4 rounded-lg text-sm overflow-x-auto">
 {`{
   "servers": {
-    "convert2": {
+    "unit-converter": {
       "type": "http",
-      "url": "https://convert2.example.com/api/mcp",
+      "url": "https://www.convert2.work/api/mcp",
       "enabled": true
     }
   }
 }`}
                   </pre>
                   <p className="text-sm text-muted-foreground mt-4">
-                    Or use the CLI: <code className="bg-muted px-1 rounded">cursor mcp add convert2 --url https://convert2.example.com/api/mcp</code>
+                    Or use the CLI: <code className="bg-muted px-1 rounded">cursor mcp add unit-converter --url https://www.convert2.work/api/mcp</code>
                   </p>
                 </div>
               </TabsContent>
@@ -138,14 +138,14 @@ export default function ApiDocsPage() {
                     <code className="bg-muted px-1 rounded">.vscode/mcp.toml</code>
                   </p>
                   <pre className="bg-muted p-4 rounded-lg text-sm overflow-x-auto">
-{`[mcp_servers.convert2]
-url = "https://convert2.example.com/api/mcp"
+{`[mcp_servers.unit-converter]
+url = "https://www.convert2.work/api/mcp"
 enabled_tools = ["convert_units", "list_units", "search_units"]
 tool_timeout_sec = 30
 enabled = true`}
                   </pre>
                   <p className="text-sm text-muted-foreground mt-4">
-                    Access via Copilot chat: <code className="bg-muted px-1 rounded">@mcp convert2</code>
+                    Access via Copilot chat: <code className="bg-muted px-1 rounded">@mcp unit-converter</code>
                   </p>
                 </div>
               </TabsContent>
@@ -162,7 +162,7 @@ import { SSEClientTransport } from '@modelcontextprotocol/sdk/client/sse';
 
 const client = new Client({ name: "my-app", version: "1.0" });
 const transport = new SSEClientTransport(
-  new URL("https://convert2.example.com/api/mcp")
+  new URL("https://www.convert2.work/api/mcp")
 );
 
 await client.connect(transport);
@@ -188,7 +188,7 @@ from mcp.client.sse import sse_client
 from mcp import ClientSession
 
 async def convert_units():
-    async with sse_client("https://convert2.example.com/api/mcp") as (read, write):
+    async with sse_client("https://www.convert2.work/api/mcp") as (read, write):
         async with ClientSession(read, write) as session:
             await session.initialize()
 

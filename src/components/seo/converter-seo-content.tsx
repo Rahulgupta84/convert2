@@ -151,7 +151,7 @@ export function ConverterSEOContent({ category, relatedCategories }: ConverterSE
               Is this {category.name.toLowerCase()} converter free to use?
             </h3>
             <p className="text-muted-foreground">
-              Yes, Convert2 is completely free to use. There are no hidden fees, no registration
+              Yes, this unit converter is completely free to use. There are no hidden fees, no registration
               required, and no limits on the number of conversions you can perform.
             </p>
           </div>
@@ -169,7 +169,7 @@ export function ConverterSEOContent({ category, relatedCategories }: ConverterSE
               How do I integrate this converter with AI assistants?
             </h3>
             <p className="text-muted-foreground">
-              Convert2 provides an MCP (Model Context Protocol) server that allows AI assistants
+              This unit converter provides an MCP (Model Context Protocol) server that allows AI assistants
               like Claude and ChatGPT to perform conversions programmatically. Check our{' '}
               <Link href="/api-docs" className="text-primary hover:underline">
                 API documentation

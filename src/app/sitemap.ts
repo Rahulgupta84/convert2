@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { allCategories, categoryGroups } from '@/lib/converters';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://convert2.vercel.app';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.convert2.work';
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [

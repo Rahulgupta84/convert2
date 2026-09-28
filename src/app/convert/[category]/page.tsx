@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  const title = `${category.name} Converter - Convert ${category.units.slice(0, 3).map(u => u.name).join(', ')} & More | Convert2`;
+  const title = `${category.name} Converter - Convert ${category.units.slice(0, 3).map(u => u.name).join(', ')} & More | Unit Converter`;
   const description = `Free online ${category.name.toLowerCase()} converter. Convert between ${category.units.length}+ units including ${category.units.slice(0, 5).map(u => u.name).join(', ')}. Instant, accurate results with formula display. Perfect for students, engineers, and professionals.`;
 
   return {
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title,
       description,
       type: 'website',
-      siteName: 'Convert2',
+      siteName: 'Unit Converter',
     },
     twitter: {
       card: 'summary_large_image',
@@ -85,9 +85,9 @@ export default async function ConverterPage({ params }: PageProps) {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: `${category.name} Converter - Convert2`,
+    name: `${category.name} Converter - Unit Converter`,
     description: category.description,
-    url: `https://convert2.vercel.app/convert/${categoryId}`,
+    url: `https://www.convert2.work/convert/${categoryId}`,
     applicationCategory: 'UtilityApplication',
     operatingSystem: 'All',
     browserRequirements: 'Requires JavaScript',
@@ -98,9 +98,8 @@ export default async function ConverterPage({ params }: PageProps) {
     },
     featureList: category.units.map(u => `Convert ${u.name}`),
     author: {
-      '@type': 'Organization',
-      name: 'Darthwares',
-      url: 'https://darthwares.com',
+      '@type': 'Person',
+      name: 'Rahul Gupta',
     },
   };
 
@@ -122,7 +121,7 @@ export default async function ConverterPage({ params }: PageProps) {
         name: `What ${category.name.toLowerCase()} units can I convert?`,
         acceptedAnswer: {
           '@type': 'Answer',
-          text: `Convert2 supports ${category.units.length} different ${category.name.toLowerCase()} units including ${category.units.slice(0, 5).map(u => u.name).join(', ')}, and more. All conversions are calculated using internationally recognized standards.`,
+          text: `This unit converter supports ${category.units.length} different ${category.name.toLowerCase()} units including ${category.units.slice(0, 5).map(u => u.name).join(', ')}, and more. All conversions are calculated using internationally recognized standards.`,
         },
       },
       {
@@ -130,7 +129,7 @@ export default async function ConverterPage({ params }: PageProps) {
         name: `Is the ${category.name.toLowerCase()} converter free to use?`,
         acceptedAnswer: {
           '@type': 'Answer',
-          text: `Yes, Convert2's ${category.name.toLowerCase()} converter is completely free with no registration required. You can perform unlimited conversions with instant, accurate results.`,
+          text: `Yes, this ${category.name.toLowerCase()} converter is completely free with no registration required. You can perform unlimited conversions with instant, accurate results.`,
         },
       },
       {
@@ -153,19 +152,19 @@ export default async function ConverterPage({ params }: PageProps) {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://convert2.vercel.app',
+        item: 'https://www.convert2.work',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Converters',
-        item: 'https://convert2.vercel.app/converters',
+        item: 'https://www.convert2.work/converters',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: `${category.name} Converter`,
-        item: `https://convert2.vercel.app/convert/${categoryId}`,
+        item: `https://www.convert2.work/convert/${categoryId}`,
       },
     ],
   };

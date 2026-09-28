@@ -21,7 +21,13 @@ test.describe('Home Page', () => {
   });
 
   test('should credit Rahul Gupta in the footer', async ({ page }) => {
-    await expect(page.getByRole('contentinfo').getByText('Rahul Gupta')).toBeVisible();
+    const footer = page.getByRole('contentinfo');
+    await expect(footer.getByText('Rahul Gupta')).toBeVisible();
+    await expect(footer.getByRole('link', { name: 'Contact us' }))
+      .toHaveAttribute('href', 'mailto:rahulgupta.bhopal@gmail.com');
+    await expect(footer.getByRole('link', { name: /GitHub/i })).toHaveCount(0);
+    await expect(page.getByRole('banner').getByRole('link', { name: 'Unit Converter' }))
+      .toBeVisible();
   });
 
   test('should navigate to length converter', async ({ page }) => {
@@ -32,7 +38,7 @@ test.describe('Home Page', () => {
 
   test('should have proper SEO meta tags', async ({ page }) => {
     const title = await page.title();
-    expect(title).toContain('Convert2');
+    expect(title).toContain('Unit Converter');
 
     const description = await page.getAttribute('meta[name="description"]', 'content');
     expect(description).toBeTruthy();

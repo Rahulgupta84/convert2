@@ -125,7 +125,7 @@ export default function HomePage() {
 
       {/* Features */}
       <section className="mb-12 md:mb-16">
-        <h2 className="text-2xl md:text-3xl font-bold mb-2 text-center">Why Choose Convert2?</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-2 text-center">Why Choose Our Unit Converter?</h2>
         <p className="text-muted-foreground text-center mb-8 max-w-2xl mx-auto">
           The most comprehensive and developer-friendly unit conversion tool on the web.
         </p>
@@ -161,7 +161,7 @@ export default function HomePage() {
 
       {/* Use Cases Section */}
       <section className="mb-12 md:mb-16 rounded-2xl border-2 border-gray-100 bg-gradient-to-br from-gray-50 to-white p-8 md:p-12">
-        <h2 className="text-2xl md:text-3xl font-bold mb-2 text-center">Who Uses Convert2?</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-2 text-center">Who Uses Our Unit Converter?</h2>
         <p className="text-muted-foreground text-center mb-8 max-w-2xl mx-auto">
           Our converter is designed for everyone, from students to professionals.
         </p>
@@ -212,20 +212,20 @@ export default function HomePage() {
 
       {/* SEO Content Section */}
       <section className="rounded-2xl border bg-card p-8 md:p-12">
-        <h2 className="text-2xl md:text-3xl font-bold mb-6">About Convert2 - Free Online Unit Converter</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-6">About Our Free Online Unit Converter</h2>
 
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           <div>
             <p className="text-muted-foreground mb-4 leading-relaxed">
-              Convert2 is a comprehensive online unit conversion tool designed to help you
-              convert between different units of measurement quickly and accurately. Whether
+              This free online unit conversion tool helps you convert between different units
+              of measurement quickly and accurately. Whether
               you need to convert length measurements like centimeters to inches, weight
               measurements like kilograms to pounds, or temperature from Celsius to Fahrenheit,
               our converter has you covered.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Built with precision and speed in mind, Convert2 provides instant results as you type,
-              with no page reloads or waiting. Our conversion formulas are based on internationally
+              Built with precision and speed in mind, the converter provides instant results as you type,
+              with no page reloads or waiting. Conversion formulas are based on internationally
               recognized standards, ensuring accuracy for both everyday use and professional applications.
             </p>
           </div>
@@ -250,7 +250,7 @@ export default function HomePage() {
         </div>
 
         <div className="border-t pt-8">
-          <h3 className="text-xl font-semibold mb-4">How to Use Convert2</h3>
+          <h3 className="text-xl font-semibold mb-4">How to Use the Unit Converter</h3>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { step: '1', title: 'Choose Category', desc: 'Select the type of unit you want to convert' },
@@ -272,9 +272,9 @@ export default function HomePage() {
         <div className="border-t pt-8 mt-8">
           <h3 className="text-xl font-semibold mb-4">For Developers</h3>
           <p className="text-muted-foreground mb-4">
-            Convert2 provides a powerful API and MCP (Model Context Protocol) server for seamless
+            The unit converter provides a powerful API and MCP (Model Context Protocol) server for seamless
             integration with AI assistants and applications. Use our API to add unit conversion
-            capabilities to your projects, or configure your AI assistant to use Convert2 directly.
+            capabilities to your projects, or configure your AI assistant to use the converter directly.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button asChild>
@@ -282,11 +282,6 @@ export default function HomePage() {
                 View API Documentation
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <a href="https://github.com/Chibionos/convert2" target="_blank" rel="noopener">
-                View on GitHub
-              </a>
             </Button>
           </div>
         </div>
@@ -298,27 +293,27 @@ export default function HomePage() {
         <div className="grid md:grid-cols-2 gap-4">
           {[
             {
-              q: 'Is Convert2 free to use?',
-              a: 'Yes, Convert2 is completely free with no registration required. Use our converter as many times as you need with no limitations.',
+              q: 'Is this unit converter free to use?',
+              a: 'Yes, this unit converter is completely free with no registration required. Use it as many times as you need with no limitations.',
             },
             {
               q: 'How accurate are the conversions?',
               a: 'Our conversions use precise factors based on international measurement standards. Results are suitable for professional, scientific, and everyday use.',
             },
             {
-              q: 'Can I use Convert2 on my phone?',
-              a: 'Absolutely! Convert2 is fully responsive and works perfectly on smartphones, tablets, and desktop computers.',
+              q: 'Can I use this unit converter on my phone?',
+              a: 'Absolutely! The unit converter is fully responsive and works perfectly on smartphones, tablets, and desktop computers.',
             },
             {
-              q: 'Does Convert2 work offline?',
-              a: 'Convert2 is a web application that requires an internet connection. However, results are calculated instantly with minimal data usage.',
+              q: 'Does the unit converter work offline?',
+              a: 'This web application requires an internet connection. However, results are calculated instantly with minimal data usage.',
             },
             {
-              q: 'Can I integrate Convert2 into my application?',
+              q: 'Can I integrate the unit converter into my application?',
               a: 'Yes! We provide a REST API and MCP server for integration. Check our API documentation for details on programmatic access.',
             },
             {
-              q: 'What units does Convert2 support?',
+              q: 'What units does the unit converter support?',
               a: `We support ${totalUnits.toLocaleString()}+ units across ${allCategories.length}+ categories including length, weight, temperature, volume, and many more.`,
             },
           ].map((faq, i) => (
