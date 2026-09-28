@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Calculator, ExternalLink, Heart } from 'lucide-react';
-import { categoryGroups, allCategories } from '@/lib/converters';
+import { categoryGroups, allCategories, totalUnitCount } from '@/lib/converters';
 
 // Partner sites for backlinks
 const partnerSites = [
@@ -57,7 +57,8 @@ export function Footer() {
               <span className="font-bold text-xl">Unit Converter</span>
             </Link>
             <p className="text-muted-foreground mb-4 max-w-sm">
-              Free online unit converter with {allCategories.length}+ categories and 1000+ units.
+              Free online unit converter with {allCategories.length} categories and{' '}
+              {totalUnitCount.toLocaleString('en-US')} units.
               Accurate, fast, and optimized for both humans and AI assistants.
             </p>
             <p className="text-sm text-muted-foreground">
